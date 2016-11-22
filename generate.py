@@ -22,7 +22,7 @@ if os.path.exists('.git'):
 
 os.system('git init')
 
-for i in range(1000):
+for i in range(500):
     if i == BAD_COMMIT - 1:
        l[42] += 0.123
     shuffle(l)

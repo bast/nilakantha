@@ -3,5 +3,5 @@
 
 # nilakantha
 
-Primitive script that creates a git bisect exercise with 1000 commits.
+Primitive script that creates a git bisect exercise with 500 commits.
 Uses the 100 first terms of the Nilakantha series to compute pi.
