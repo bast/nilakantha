@@ -22,7 +22,7 @@ def main():
     NUM_COMMITS = 500
     BAD_COMMIT = 137
     NUM_TERMS = 15
-    BAD_TERM = 5
+    BAD_TERM = 8
 
     if os.path.exists('.git'):
         sys.stderr.write('ERROR: do not run this script in an existing repo\n')
