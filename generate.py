@@ -41,14 +41,17 @@ def main():
                 if k == 0:
                     f.write('t{0} = 3.0 + {1}'.format(k, t))
                 elif k == len(l) - 1:
-                    f.write('print(t{0})'.format(k - 1))
+                    f.write("print('%.2f' % (t{0}))".format(k - 1))
                 else:
                     f.write('t{0} = t{1} + {2}'.format(k, k - 1, t))
                 if k == i%NUM_TERMS:
                     f.write('  # this comment is added to obfuscate git blame\n')
                 else:
                     f.write('\n')
-        os.system('git add get_pi.py; git commit get_pi.py -m "commit number %i"' % (i+1))
+        extra_commit_message = ''
+        if (i + 1) == BAD_COMMIT:
+            extra_commit_message = ' (this is the bad commit)'
+        os.system('git add get_pi.py; git commit get_pi.py -m "commit number %i%s"' % (i+1, extra_commit_message))
 
 
 if __name__ == '__main__':
