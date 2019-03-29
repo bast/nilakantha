@@ -46,7 +46,7 @@ def main():
                     f.write('  # this comment is added to obfuscate git blame\n')
                 else:
                     f.write('\n')
-        os.system(f'git add get_pi.py; git commit get_pi.py -m "commit number {i}"')
+        os.system(f'git add get_pi.py; git commit get_pi.py -m "commit number {i + 1}"')
 
 
 if __name__ == '__main__':
