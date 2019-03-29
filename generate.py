@@ -48,10 +48,7 @@ def main():
                     f.write('  # this comment is added to obfuscate git blame\n')
                 else:
                     f.write('\n')
-        extra_commit_message = ''
-        if (i + 1) == BAD_COMMIT:
-            extra_commit_message = ' (this is the bad commit)'
-        os.system('git add get_pi.py; git commit get_pi.py -m "commit number %i%s"' % (i+1, extra_commit_message))
+        os.system(f'git add get_pi.py; git commit get_pi.py -m "commit number {i}"')
 
 
 if __name__ == '__main__':
