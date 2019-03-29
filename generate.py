@@ -9,13 +9,13 @@ def get_term(n):
 
 
 def get_terms(num_terms):
-    l = []
+    terms = []
     n = 2
     for i in range(num_terms):
         sign = (-1)**i
-        l.append(sign*get_term(n))
+        terms.append(sign*get_term(n))
         n += 2
-    return l
+    return terms
 
 
 def main():
@@ -29,22 +29,22 @@ def main():
         sys.exit(1)
     os.system('git init')
 
-    l = get_terms(NUM_TERMS)
+    terms = get_terms(NUM_TERMS)
 
     for i in range(NUM_COMMITS):
         with open('get_pi.py', 'w') as f:
             f.write('# commit {0}\n'.format(i + 1))
-            for k, term in enumerate(l):
-                t = l[k]
+            for k, term in enumerate(terms):
+                t = term
                 if i >= BAD_COMMIT - 1 and k == BAD_TERM - 1:
                     t += 0.4321
                 if k == 0:
                     f.write('t{0} = 3.0 + {1}'.format(k, t))
-                elif k == len(l) - 1:
+                elif k == len(terms) - 1:
                     f.write("print('%.2f' % (t{0}))".format(k - 1))
                 else:
                     f.write('t{0} = t{1} + {2}'.format(k, k - 1, t))
-                if k == i%NUM_TERMS:
+                if k == i % NUM_TERMS:
                     f.write('  # this comment is added to obfuscate git blame\n')
                 else:
                     f.write('\n')
